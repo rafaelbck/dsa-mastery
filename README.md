@@ -2,6 +2,8 @@
 
 *“Understanding the complexity of an algorithm is the difference between a solution that works and a solution that scales.”*
 
+> Based on the Udemy Course: JavaScript Data Structures & Algorithms + LEETCODE Exercises
+
 ## Project Purpose
 This repository will serve as a technical laboratory for mastering **Computer Science** fundamentals. My goal is to bridge the gap between business strategy and technical excellence by implementing high-performance solutions.
 
@@ -10,7 +12,7 @@ Drawing from my experience as a **Solutions Engineer and Technical Leader**, I f
 ---
 
 ## Technical Stack
-* **Language:** JavaScript / TypeScript / PHP
+* **Language:** JavaScript / TypeScript / PHP / Python.
 * **Testing:** Logic validation through LeetCode challenges.
 
 ---
