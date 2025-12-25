@@ -12,6 +12,10 @@ class LinkedList {
         this.tail = this.head
         this.length = 1
     }
+
+    push(value){
+      
+    }
 };
 
 let myLinkedList = new LinkedList(4)
