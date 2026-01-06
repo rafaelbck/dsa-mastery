@@ -43,7 +43,6 @@ class LinkedList {
             this.tail = null
         }
         return temp
-
     }
 
     unshift(value){
@@ -91,10 +90,46 @@ class LinkedList {
         }
     }
 
-};
+    insert(index, value){
+        if(index === 0) return this.unshift(value);
+        if(index === this.length) return this.push(value);
+        if(index < 0 || index > this.length) return false;
 
-let myLinkedList = new LinkedList(2)
-myLinkedList.push(1);
-myLinkedList.shift()
-myLinkedList.shift()
-console.log(myLinkedList)
+        const newNode = new Node(value);
+        const temp = this.get(index -1);
+        newNode.next = temp.next;
+        temp.next = newNode
+        this.length++
+        return true
+    }
+
+    remove(index){
+        if(index < 0 || index >= this.length) return false;
+        if(index === 0) return this.shift(index);
+        if(index === this.length -1) return this.pop();
+
+        let pre = this.get(index -1);
+        let temp = pre.next;
+        pre.next = temp.next
+        temp.next = null
+        this.length--
+        return temp
+    }
+
+    reverse(){
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+        let next = temp.next;
+        let prev = null;
+
+        for(i = 0; i < this.length; i++){
+            next = temp.next;
+            temp.next = prev
+            prev = temp
+            temp = next
+        }
+        return this
+    }
+
+};

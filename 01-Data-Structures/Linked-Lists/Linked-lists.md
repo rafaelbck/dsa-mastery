@@ -57,3 +57,5 @@ It is an object with value and next;
     }
 }
 ```
+
+## Methods
