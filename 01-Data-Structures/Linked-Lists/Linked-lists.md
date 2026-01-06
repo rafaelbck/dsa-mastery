@@ -59,3 +59,12 @@ It is an object with value and next;
 ```
 
 ## Methods
+* push(value): adds to the end; time complexity = O(1);
+* pop(): removes from the end; time complexity = O(n);
+* unshift(value): adds to the beggining; time complexity = O(1);
+* shift(): removes from beggining; time complexity = O(1);
+* get(index): searches the value of a index; time complexity = O(n);
+* set(index, value): set a value to a determined index; time complexity = O(n);
+* insert(index, value): insert a value in a determined index & moves the list accordingly; time complexity = O(n);
+* remove(index): removes an index from the list; time complexity = O(n);
+* reverse(): reverses the list; time complexity = O(n);
