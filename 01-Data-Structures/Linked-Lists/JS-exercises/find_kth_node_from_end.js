@@ -1,6 +1,6 @@
 /*
     Find kth node from end
-    Edge cases: 
+    Constraints
         - No length attribute;
         - Cannot calculate the length
         - if k > length return null 

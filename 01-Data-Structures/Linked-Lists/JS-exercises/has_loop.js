@@ -1,5 +1,5 @@
 /*
-    Edge cases: 
+    Constraints: 
         - No length attribute;
         - Cannot calculate the length
         - Only loop through it once

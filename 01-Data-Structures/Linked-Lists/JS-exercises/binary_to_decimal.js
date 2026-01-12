@@ -5,9 +5,10 @@
     1011
     8 + 0 + 2 + 1
 
-    while curr !== null
-    let total = curr.value
-    curr.next
+  Constraints: 
+        - No length attribute;
+        - Cannot calculate the length
+        - only iterate through it once
 */
 class Node {
   constructor(value) {
@@ -37,15 +38,13 @@ class LinkedList {
     return this;
   }
 
-  binaryToDecimal(){
-    let curr = this.head;
-    let value = 0;
-
-    while(curr !== null){
-        if(total > 0){
-         total *= 2   
+    binaryToDecimal() {
+        let num = 0;
+        let current = this.head;
+        while (current !== null) {
+            num = num * 2 + current.value;
+            current = current.next;
         }
-        total += curr.value
+        return num;
     }
-  }
 }

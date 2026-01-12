@@ -1,12 +1,9 @@
 /*
-    Remove Duplicates
-
     Constraints
-      Don't use Sets. 
-      inneficient: nested loops: O(n²) 
-
+        You are not allowed to use any additional data structures (such as arrays) or modify the existing data structure.
+        You can only traverse the linked list once.
+        You can create temporary nodes to make the implementation simpler.
 */
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -35,22 +32,6 @@ class LinkedList {
     return this;
   }
 
-  removeDuplicates() {
-    let curr = this.head;
-    let runner;
 
-    while (curr !== null) {
-      runner = curr;
 
-      while (runner.next !== null) {
-        if (runner.next.value === curr.value) {
-          runner.next = runner.next.next;
-          this.length--;
-        } else {
-          runner = runner.next;
-        }
-      }
-      curr = curr.next;
-    }
-  }
 }
