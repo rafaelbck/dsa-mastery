@@ -13,6 +13,7 @@ class LinkedList {
         this.length = 1
     }
 
+    // Push: add to the end
     push(value){
         const newNode = new Node(value)
         if(!this.head){
@@ -26,6 +27,7 @@ class LinkedList {
         return this
     }
 
+    // Pop: Deletes from the end
     pop(){
         if(!this.head) return undefined
 
@@ -45,6 +47,7 @@ class LinkedList {
         return temp
     }
 
+    // Unshift: Adds to the beggining
     unshift(value){
         const newNode = new Node(value)
 
@@ -59,6 +62,7 @@ class LinkedList {
         return this
     }
 
+    //Shift: Deletes from the beggining
     shift(){
         if(!this.head) return undefined
         let temp = this.head;
@@ -71,6 +75,7 @@ class LinkedList {
         return temp
     }
 
+    //Get: Lookup from index
     get(index){
         if(index < 0 || index >= this.length) return undefined
         temp = this.head
@@ -80,6 +85,7 @@ class LinkedList {
         return temp
     }
 
+    //Set: Updates value in a index
     set(index, value){
         let temp = this.get(index)
         if(temp){
@@ -90,6 +96,7 @@ class LinkedList {
         }
     }
 
+    //Insert: Inserts Node to a index
     insert(index, value){
         if(index === 0) return this.unshift(value);
         if(index === this.length) return this.push(value);
@@ -103,6 +110,7 @@ class LinkedList {
         return true
     }
 
+    //Remove: Deletes a node
     remove(index){
         if(index < 0 || index >= this.length) return false;
         if(index === 0) return this.shift(index);
@@ -116,6 +124,7 @@ class LinkedList {
         return temp
     }
 
+    //Reverse: Reverses the entire list
     reverse(){
         let temp = this.head;
         this.head = this.tail;

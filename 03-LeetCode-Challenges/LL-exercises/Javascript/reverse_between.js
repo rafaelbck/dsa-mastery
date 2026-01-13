@@ -32,6 +32,28 @@ class LinkedList {
     return this;
   }
 
-
-
+	reverseBetween(m, n){
+        if(this.head === null) return;
+        let Dummy = new Node(0);
+        Dummy.next = this.head;
+        let prev = Dummy;
+        for(i=0; i < m; i++){
+            prev = prev.next
+        }
+        let current = prev.next
+        for(i=0; i < n-m; i++){
+            let temp = current.next
+            current.next = temp.next
+            temp.next = prev.next
+            prev.next = temp
+        }
+        this.head = Dummy.next
+	}
 }
+
+let myLinkedList = new LinkedList(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
+myLinkedList.push(5);
+console.log(myLinkedList)

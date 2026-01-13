@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked Lists (LL)
 
 > null-terminated list
 
