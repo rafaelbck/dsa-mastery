@@ -43,6 +43,6 @@ In my current professional role, I apply these concepts to:
 
 ## 🔗 Connect with me
 * **LinkedIn**: [https://www.linkedin.com/in/macirafael]
-* **Email**: macibrafael@gmail.com | rafaelbck@protonmail.com
+* **Email**: rafaelbck@protonmail.com
 
 ---
