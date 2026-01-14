@@ -13,7 +13,7 @@ class LinkedList {
         this.length = 1
     }
 
-    // Push: add to the end
+    // Push: add to the end - O(1)
     push(value){
         const newNode = new Node(value)
         if(!this.head){
@@ -27,7 +27,7 @@ class LinkedList {
         return this
     }
 
-    // Pop: Deletes from the end
+    // Pop: Deletes from the end - O(n)
     pop(){
         if(!this.head) return undefined
 
@@ -47,7 +47,7 @@ class LinkedList {
         return temp
     }
 
-    // Unshift: Adds to the beggining
+    // Unshift: Adds to the beggining - O(1)
     unshift(value){
         const newNode = new Node(value)
 
@@ -75,7 +75,7 @@ class LinkedList {
         return temp
     }
 
-    //Get: Lookup from index
+    //Get: Lookup from index - O(n)
     get(index){
         if(index < 0 || index >= this.length) return undefined
         temp = this.head
@@ -85,7 +85,7 @@ class LinkedList {
         return temp
     }
 
-    //Set: Updates value in a index
+    //Set: Updates value in a index - O(n)
     set(index, value){
         let temp = this.get(index)
         if(temp){
