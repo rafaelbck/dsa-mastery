@@ -131,6 +131,7 @@ class LinkedList
         }
     }
 
+    #Insert: insert a node in an index - O(n)
     public function insert(int $index, int $value): mixed
     {
         if ($index === 0) {
@@ -151,7 +152,8 @@ class LinkedList
         return true;
     }
 
-    public function remove(int $index, int $value): mixed
+    # Remove node from index - O(n)
+    public function remove(int $index): mixed
     {
         if ($index === 0) {
             return $this->shift();
@@ -171,6 +173,7 @@ class LinkedList
         return $temp;
     }
 
+    #Reverse the LL - O(n)
     public function reverse(): static
     {
         $temp = $this->head;
