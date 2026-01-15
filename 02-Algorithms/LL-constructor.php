@@ -11,26 +11,30 @@ class Node
         $this->value = $value;
         $this->next = null;
     }
-};
+}
+;
 
-class LinkedList {
+class LinkedList
+{
 
     public $head;
     public $tail;
     public $length;
 
-    public function __construct(int $value){
+    public function __construct(int $value)
+    {
         $newNode = new Node(value: $value);
         $this->head = $newNode;
         $this->tail = $this->head;
-        $this->length = 1;   
+        $this->length = 1;
     }
 
     # Push: add element to the end - O(1)
 
-    public function push(int $value): static{
+    public function push(int $value): static
+    {
         $NewNode = new Node(value: $value);
-        if(!$this->head){
+        if (!$this->head) {
             $this->head = $NewNode;
             $this->tail = $NewNode;
         } else {
@@ -43,13 +47,15 @@ class LinkedList {
 
     #Pop: delete from the end - O(n)
 
-    public function pop(): mixed{
-        if(!$this->head) return null;
+    public function pop(): mixed
+    {
+        if (!$this->head)
+            return null;
 
         $temp = $this->head;
         $pre = $this->head;
 
-        while ($temp->next){
+        while ($temp->next) {
             $pre = $temp;
             $temp = $temp->next;
         }
@@ -58,7 +64,7 @@ class LinkedList {
         $this->tail->next = null;
         $this->length--;
 
-        if($this->length === 0){
+        if ($this->length === 0) {
             $this->head = null;
             $this->tail = null;
         }
@@ -68,12 +74,13 @@ class LinkedList {
 
     #Unshift: Add element to the beggining - O(1)
 
-    public function unshift(int $value): static{
+    public function unshift(int $value): static
+    {
         $NewNode = new Node(value: $value);
 
-        if(!$this->head){
+        if (!$this->head) {
             $this->head = $NewNode;
-            $this->tail = $NewNode; 
+            $this->tail = $NewNode;
         } else {
             $NewNode->next = $this->head;
             $this->head = $NewNode;
@@ -84,13 +91,15 @@ class LinkedList {
     }
 
     #Shift: Remove element from the beggining - O(1)
-    public function shift(): mixed{
-        if(!$this->head) return null;
+    public function shift(): mixed
+    {
+        if (!$this->head)
+            return null;
         $temp = $this->head;
         $this->head = $this->head->next;
         $temp->next = null;
 
-        if($this->length === 0){
+        if ($this->length === 0) {
             $this->tail = null;
         }
 
@@ -98,25 +107,84 @@ class LinkedList {
     }
 
     #Get: Lookup for index - O(n)
-    public function get(int $index): mixed{
-        if($index < 0 || $index > $this->length){
+    public function get(int $index): mixed
+    {
+        if ($index < 0 || $index > $this->length) {
             return null;
         }
         $temp = $this->head;
-        for($i=0;$i < $index; $i++){
+        for ($i = 0; $i < $index; $i++) {
             $temp = $temp->next;
         }
         return $temp;
     }
-    
+
     #Set: Update a value in an index - O(n)
-    public function set(int $index, int $value): bool{
+    public function set(int $index, int $value): bool
+    {
         $temp = $this->get(index: $index);
-        if($temp){
+        if ($temp) {
             $temp->value = $value;
             return true;
         } else {
             return false;
         }
+    }
+
+    public function insert(int $index, int $value): mixed
+    {
+        if ($index === 0) {
+            return $this->unshift(value: $value);
+        }
+        if ($index === $this->length) {
+            return $this->push(value: $value);
+        }
+        if ($index < 0 || $index > $this->length) {
+            return false;
+        }
+
+        $NewNode = new Node(value: $value);
+        $temp = $this->get(index: $index - 1);
+        $NewNode->next = $temp->next;
+        $temp->next = $NewNode;
+        $this->length++;
+        return true;
+    }
+
+    public function remove(int $index, int $value): mixed
+    {
+        if ($index === 0) {
+            return $this->shift();
+        }
+        if ($index === $this->length) {
+            return $this->pop();
+        }
+        if ($index < 0 || $index > $this->length) {
+            return false;
+        }
+
+        $pre = $this->get(index: $index - 1);
+        $temp = $pre->next;
+        $pre->next = $temp->next;
+        $temp->next = null;
+        $this->length--;
+        return $temp;
+    }
+
+    public function reverse(): static
+    {
+        $temp = $this->head;
+        $this->head = $this->tail;
+        $this->tail = $temp;
+        $next = $temp->next;
+        $prev = null;
+
+        for ($i = 0; $i < $this->length; $i++) {
+            $next = $temp->next;
+            $temp->next = $prev;
+            $prev = $temp;
+            $temp = $next;
+        }
+        return $this;
     }
 }
